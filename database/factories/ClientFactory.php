@@ -5,7 +5,7 @@
 use App\Client;
 use Faker\Generator as Faker;
 
-require_once __DIR__. '/..faker_data/document_number.php';
+require_once __DIR__. '/../faker_data/document_number.php';
 
 $factory->define(Client::class, function (Faker $faker) {
     $cpfs = cpfs();
