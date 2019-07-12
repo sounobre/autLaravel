@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use Illuminate\Http\Request;
 
 class ClientsController extends Controller
@@ -24,7 +25,7 @@ class ClientsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.clients.create');
     }
 
     /**
@@ -35,7 +36,10 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['defaulter'] = 0;
+        Client::create($data);
+        return redirect()->to('/admin/clients');
     }
 
     /**
