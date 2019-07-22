@@ -9,7 +9,7 @@
             @endforeach
         </ul>
     @endif
-    <form method="post" action="{{route('clients.update',['client' => $client->id])}}">
+    <form method="PUT" action="{{route('clients.update',['client' => $client->id])}}">
         {{csrf_field()}}
         <div class="form-group">
             <label for="name">Nome</label>

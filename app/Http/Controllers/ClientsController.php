@@ -49,9 +49,9 @@ class ClientsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client)
     {
-        //
+        return view('admin.clients.show', compact('client'));
     }
 
     /**
@@ -63,6 +63,7 @@ class ClientsController extends Controller
     public function edit($id)
     {
         $client = Client::findOrFail($id);
+        dd('teste');
         return view('admin.clients.edit', compact('client'));
     }
 
