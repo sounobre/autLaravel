@@ -25,7 +25,7 @@ class ClientsController extends Controller
      */
     public function create()
     {
-        return view('admin.clients.create');
+        return view('admin.clients.create',['client' => new Client()]);
     }
 
     /**
@@ -60,10 +60,9 @@ class ClientsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
         $client = Client::findOrFail($id);
-        dd('teste');
         return view('admin.clients.edit', compact('client'));
     }
 
@@ -74,9 +73,8 @@ class ClientsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Client $client)
     {
-        $client = Client::findOrFail($id);
         $this->_validate($request);
         $this->_validate($request);
         $data = $request->all();
