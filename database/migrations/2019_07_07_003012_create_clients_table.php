@@ -15,7 +15,6 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->bigIncrements('id');
-
             $table->string('name');
             $table->string('document_number');
             $table->string('email');
@@ -25,7 +24,6 @@ class CreateClientsTable extends Migration
             $table->char('sex', 10);
             $table->enum('marital_status',array_keys(\App\Client::MARITAL_STATUS));
             $table->string('physical_disability')->nullable();
-
             $table->timestamps();
         });
     }
